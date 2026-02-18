@@ -39,6 +39,11 @@ Sections
 
 body {
 	margin: 0; /* Remove the margin in all browsers. */
+
+	font-family: Arial, Helvetica, sans-serif;
+	line-height: 1.5;
+	background-color:#CEC0FA;
+	padding: 1rem;
 }
 
 /*
