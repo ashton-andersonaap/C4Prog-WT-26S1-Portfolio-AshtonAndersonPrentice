@@ -12,8 +12,10 @@
 <body>
     <header class = 'site-header'>
         <h1>Site Name</h1>
+        <button class = "hamburger" aria-label = "Toggle Menu">&#9776;</button>
     </header>
     <nav class = 'top-nav'>
+        
         <ul>
             <li><a href=#>Home</a></li>
             <li><a href=#>About</a></li>
@@ -149,6 +151,15 @@
         </nav>
 
     </footer>
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.top-nav ul');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+    </script>
 </body>
 
 </html>
