@@ -212,13 +212,29 @@ footer {
     }
 
     footer {
-        text-align: center;
         display: flex;
-        align-items: flex-start ;
+        align-items: stretch;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: center;
+        text-align: center;
         background-color: #6974DB;
 
+    }
+
+    .footer-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    
+    }
+
+    .copyright {
+
+        text-align: left;
+    }
+
+    .bottom-nav {
+        margin: 0 auto;
     }
 
     .bottom-nav ul {
