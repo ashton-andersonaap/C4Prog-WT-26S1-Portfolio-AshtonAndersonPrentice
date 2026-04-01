@@ -56,28 +56,50 @@
 
         <article class = 'article3'>
             <header>
-                <h2>THAT'S MY LECTURE</h2>
+                <h2>NINJA API App</h2>
             </header>
+
+            <form class="APIform">
+                <p>
+                    Select From the Following APIs
+                </p>
+                <div class="checkboxes">
+                    <label>
+                        <input type="checkbox" name="APIs" value="Web Scraper">
+                        Web Scraper
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="APIs" value="QR Generator">
+                        QR Generator
+                    </label>
+                </div>
+                
+                <br><br>
+                <input type="text" id="inputfield" placeholder="Enter custom option...">
+                <br>
+
+                <h3>Output:</h3>
+                <div id="APIoutput">
+
+                </div>
+
+                <button  id="submitbutton" class="submitbutton">submit</button>
+
+
+            </form>
             <p>
-                Anyone attending an IT lecture should expect that the lecturer knows the subject.
-                But IT lecturers are a funny lot.
+                
             </p>
             <p>
-                Jun Li, a programmer, recalls working in IT support at a school.
+                
             </p>
             <p>
-                "I was told to set up a projector in one of the meeting rooms for school staff,
-                as there was a presentation. Having done that, I hooked the presentation laptop
-                to the network and tried to help one of the speakers from the IT faculty update
-                the laptop to IE7. I logged off and asked her to log on with her account to try
-                IE7.
+                
             </p>
             <p>
-                'What is that?' she asked when the IE7 install process asked whether phishing
-                should be turned on. After I explained it, she told me that she was about to
-                present a talk on internet security."
+            
             </p>
-            <img src="../assets/img/usererror.jpg" class="my-img" alt="User error image">
+            <img src="">
         </article>
 
         <article class = 'article4'>
@@ -184,5 +206,29 @@
 
     </footer>
 </body>
+
+<script>
+    const checkboxes = document.querySelectorAll('input[name="APIs"]');
+    const textInput = document.getElementById("inputfield");
+    const APIoutput = document.getElementById("APIoutput");
+
+    checkboxes.forEach(box => {
+        box.addEventListener("change", () => {
+            checkboxes.forEach(cb => {
+                if (cb !== box) cb.checked = false;
+            });
+
+            textInput.value = "";
+            APIoutput.innerText = "";
+
+
+        });
+
+
+
+    });
+
+
+</script>
 
 </html>

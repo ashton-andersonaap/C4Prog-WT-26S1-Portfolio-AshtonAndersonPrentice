@@ -94,7 +94,71 @@ footer {
 
 
 
+.checkboxes{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
 
+}
+
+.submitbutton {
+    display: block;
+    justify-content: center;
+    background-color: green;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 2.5px;
+    margin: 10px auto 0;
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+}
+
+.submitbutton:hover {
+    background-color: darkgreen;
+}
+
+#inputfield {
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+    margin: 10px auto 0;
+
+}
+
+#APIoutput {
+    min-height: 100px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+    margin: 10px auto 0;
+
+}
+
+
+.APIform {
+    background-color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    max-width: 400px;
+    margin: 20px auto;
+    gap: 10px;
+    border-radius: 8px;
+    box-sizing: border-box;
+
+}
 
 
 
@@ -110,6 +174,7 @@ footer {
 
 
 @media (min-width: 768px) {
+
     body {
         display: grid;
         grid-template-rows: 60px 1fr minmax(650px, auto) minmax(100px, auto);
@@ -186,6 +251,8 @@ footer {
         background-color: #CF69DB;
 
     }
+
+
 
     .article4 {
         grid-column: 2;
