@@ -65,8 +65,8 @@
                 </p>
                 <div class="checkboxes">
                     <label>
-                        <input type="checkbox" name="APIs" value="Web Scraper">
-                        Web Scraper
+                        <input type="checkbox" name="APIs" value="Planetary Data">
+                        Planetary Data
                     </label><br>
                     <label>
                         <input type="checkbox" name="APIs" value="Password Generator">
@@ -209,6 +209,19 @@
             //textInput.value = "";
             APIoutput.innerText = "";
 
+            if (box.checked) {
+
+                switch(box.value){
+                    case "Password Generator":
+                        textInput.placeholder = 'Enter Password Length '
+                        break;
+                    case "Planetary Data":
+                        textInput.placeholder = "Enter Planet Identifier"
+                        break;
+                    
+                }
+            }
+
         });
     });
 
@@ -260,10 +273,9 @@ async function callAPI(apiType, query)
         }
 
 
-        else if (apiType == "Web Scraper"){
+        else if (apiType == "Planetary Data"){
 
-            const queryUrl = query.startsWith("http") ? query : `https://${query}`;
-            url = `https://api.api-ninjas.com/v1/webscraper?url=${encodeURIComponent(queryUrl)}`;
+            url = `https://api.api-ninjas.com/v1/planets?name=${encodeURIComponent(query)}`;
 
             const response = await fetch(url, {
             headers: {
@@ -277,9 +289,15 @@ async function callAPI(apiType, query)
                 }
             
             const data = await response.json();
-
-            APIoutput.innerText =
-                data.text?.substring(0,500) || "No content found"; 
+            const planet = data[0]
+            if (planet && planet.name){
+                APIoutput.innerHTML = `<h4>${planet.name}</h4> 
+                                       <p>Mass: ${planet.mass || "Unknown"}</p>
+                                       <p>Distance: ${planet.distance_light_year || "Unknown"} LY </p>
+                                       <p>Orbital Period: ${planet.period || "Unknown"} Earth Days </p>`;
+            } else {
+                APIoutput.innerHTML = "No Data Found";
+            }
 
         }
     }catch (error) {
