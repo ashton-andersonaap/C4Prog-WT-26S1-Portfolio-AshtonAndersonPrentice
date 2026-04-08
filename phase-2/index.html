@@ -69,8 +69,8 @@
                         Web Scraper
                     </label><br>
                     <label>
-                        <input type="checkbox" name="APIs" value="QR Generator">
-                        QR Generator
+                        <input type="checkbox" name="APIs" value="Password Generator">
+                        Password Generator
                     </label>
                 </div>
                 
@@ -79,27 +79,14 @@
                 <br>
 
                 <h3>Output:</h3>
-                <div id="APIoutput">
+                <div id="APIoutput" style="border: 1px solid #ccc; padding: 10px; min-height: 100px;">
 
                 </div>
 
-                <button  id="submitbutton" class="submitbutton">submit</button>
+                <button  type="submit"  id="submitbutton" class="submitbutton">submit</button>
 
 
             </form>
-            <p>
-                
-            </p>
-            <p>
-                
-            </p>
-            <p>
-                
-            </p>
-            <p>
-            
-            </p>
-            <img src="">
         </article>
 
         <article class = 'article4'>
@@ -205,7 +192,7 @@
         </div>
 
     </footer>
-</body>
+
 
 <script>
     const checkboxes = document.querySelectorAll('input[name="APIs"]');
@@ -214,21 +201,95 @@
 
     checkboxes.forEach(box => {
         box.addEventListener("change", () => {
+        // Allow for only one checkbox to be selected
             checkboxes.forEach(cb => {
                 if (cb !== box) cb.checked = false;
             });
 
-            textInput.value = "";
+            //textInput.value = "";
             APIoutput.innerText = "";
 
-
         });
-
-
-
     });
 
+const form = document.querySelector("form");
+form.addEventListener("submit", e => {
+    e.preventDefault();
+
+    const query = textInput.value;
+
+    const selected = [...checkboxes].find(cb => cb.checked);
+
+    if (!selected){
+        APIoutput.innerText = "Please select an API";
+        return;
+    }
+    callAPI(selected.value,query);
+});
+
+
+
+async function callAPI(apiType, query) 
+{
+    if (!query) {
+        APIoutput.innerText = "Enter something in input field";
+        return;
+    }
+    try {
+        let url = "";
+
+        //API Selection Based On Checkbox Value 
+        if (apiType == "Password Generator"){
+            url = `https://api.api-ninjas.com/v1/passwordgenerator?length=${query}`;
+
+            const response = await fetch(url, {
+            headers: {
+                'X-Api-Key' : 'Fj79uvDYqvkWVRvdDoRojHjzryg3VeONoYCr8IWl'
+            }
+            });
+
+
+            if (!response.ok) {
+            APIoutput.innerText = `Error: ${response.status} ${response.statusText}`;
+            return;
+            }
+
+            const data = await response.json()
+
+            APIoutput.innerText = data.random_password || "No password Generated"
+        }
+
+
+        else if (apiType == "Web Scraper"){
+
+            const queryUrl = query.startsWith("http") ? query : `https://${query}`;
+            url = `https://api.api-ninjas.com/v1/webscraper?url=${encodeURIComponent(queryUrl)}`;
+
+            const response = await fetch(url, {
+            headers: {
+                'X-Api-Key' : 'Fj79uvDYqvkWVRvdDoRojHjzryg3VeONoYCr8IWl'
+            }
+            });
+
+                if (!response.ok) {
+                APIoutput.innerText = `Error: ${response.status} ${response.statusText}`;
+                return;
+                }
+            
+            const data = await response.json();
+
+            APIoutput.innerText =
+                data.text?.substring(0,500) || "No content found"; 
+
+        }
+    }catch (error) {
+        APIoutput.innerText = "Error Fetching Data";
+        console.error(error);
+    }
+
+}
 
 </script>
+</body>
 
 </html>
