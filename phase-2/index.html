@@ -75,7 +75,7 @@
                 </div>
                 
                 <br><br>
-                <input type="text" id="inputfield" placeholder="Enter custom option...">
+                <input type="text" id="inputfield" placeholder="">
                 <br>
 
                 <h3>Output:</h3>
@@ -269,7 +269,9 @@ async function callAPI(apiType, query)
 
             const data = await response.json()
 
-            APIoutput.innerText = data.random_password || "No password Generated"
+            APIoutput.innerHTML = ` <h4>Generated Password</h4>
+
+                                    <p style = "font-size: 10">${data.random_password || "No password Generated"}</p>`
         }
 
 
