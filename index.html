@@ -63,9 +63,9 @@
 
 </header>
 
-<main class="p-6 grid grid-cols-1 md:grid-cols-4 gap-6">
+<main class="p-6 grid grid-cols-1 md:grid-cols-4 gap-10">
 
-  <article class="border border-gray-500 flex flex-col">
+  <article class="border border-gray-500 flex flex-col h-full w-full">
 
     <!-- Card Header -->
     <header class="bg-gray-800 text-gray-200 p-4">
@@ -95,7 +95,64 @@
     </footer>
 
   </article>
+<article class="border border-gray-500 flex flex-col h-full w-full">
 
+  <header class="bg-gray-800 text-gray-200 p-4">
+    <h2 class="text-xl font-bold">NINJA API App</h2>
+  </header>
+
+  <figure class="p-4 flex justify-center">
+    <img
+      src="./assets/img/ascci_saturn.jpg"
+      alt="planet"
+      class="w-16 h-16 object-contain"
+    >
+  </figure>
+
+  <section class="flex flex-col gap-4 p-4 text-gray-700">
+
+    <form class="flex flex-col gap-4" id="apiForm">
+
+      <p>Select From the Following APIs</p>
+
+      <div class="flex flex-col gap-2">
+        <label class="flex items-center gap-2">
+          <input type="checkbox" name="APIs" value="Planetary Data">
+          Planetary Data
+        </label>
+
+        <label class="flex items-center gap-2">
+          <input type="checkbox" name="APIs" value="Password Generator">
+          Password Generator
+        </label>
+      </div>
+
+      <input
+        type="text"
+        id="inputfield"
+        class="border border-gray-300 p-2"
+        placeholder="Enter value..."
+      >
+
+      <h3 class="font-semibold">Output:</h3>
+
+      <div class="border border-gray-300 p-3 min-h-[100px]">
+        <div id="APIoutput"></div>
+      </div>
+
+      <button
+        type="submit"
+        id="submitbutton"
+        class="bg-blue-600 text-white px-4 py-2 hover:bg-blue-700"
+      >
+        Submit
+      </button>
+
+    </form>
+
+  </section>
+
+</article>
 </main>
 
 <footer class="w-full bg-gray-800 text-gray-400 body-font">
@@ -176,4 +233,5 @@
 
 </footer>
 </body>
+<script src="assets/js/apiScript.js"></script>
 </html>
