@@ -592,6 +592,10 @@ video {
   margin: auto;
 }
 
+.-m-4 {
+  margin: -1rem;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -609,8 +613,24 @@ video {
   margin-top: 1.25rem;
 }
 
+.mb-0 {
+  margin-bottom: 0px;
+}
+
+.mt-0 {
+  margin-top: 0px;
+}
+
+.mt-auto {
+  margin-top: auto;
+}
+
 .flex {
   display: flex;
+}
+
+.grid {
+  display: grid;
 }
 
 .h-6 {
@@ -621,8 +641,16 @@ video {
   width: 100%;
 }
 
+.w-1\/4 {
+  width: 25%;
+}
+
 .grow {
   flex-grow: 1;
+}
+
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 
 .flex-col {
@@ -655,6 +683,10 @@ video {
 
 .gap-8 {
   gap: 2rem;
+}
+
+.gap-6 {
+  gap: 1.5rem;
 }
 
 .border {
@@ -692,6 +724,11 @@ video {
   border-color: rgb(156 163 175 / var(--tw-border-opacity, 1));
 }
 
+.border-gray-500 {
+  --tw-border-opacity: 1;
+  border-color: rgb(107 114 128 / var(--tw-border-opacity, 1));
+}
+
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
@@ -707,8 +744,17 @@ video {
   background-color: rgb(31 41 55 / var(--tw-bg-opacity, 1));
 }
 
+.bg-gray-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity, 1));
+}
+
 .p-6 {
   padding: 1.5rem;
+}
+
+.p-4 {
+  padding: 1rem;
 }
 
 .px-3 {
@@ -764,6 +810,21 @@ video {
   color: rgb(156 163 175 / var(--tw-text-opacity, 1));
 }
 
+.text-gray-200 {
+  --tw-text-opacity: 1;
+  color: rgb(229 231 235 / var(--tw-text-opacity, 1));
+}
+
+.text-gray-800 {
+  --tw-text-opacity: 1;
+  color: rgb(31 41 55 / var(--tw-text-opacity, 1));
+}
+
+.text-blue-600 {
+  --tw-text-opacity: 1;
+  color: rgb(37 99 235 / var(--tw-text-opacity, 1));
+}
+
 .shadow-sm {
   --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
@@ -799,6 +860,10 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 
+.hover\:underline:hover {
+  text-decoration-line: underline;
+}
+
 @media (min-width: 768px) {
   .md\:mb-0 {
     margin-bottom: 0px;
@@ -806,6 +871,10 @@ video {
 
   .md\:mr-auto {
     margin-right: auto;
+  }
+
+  .md\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .md\:flex-row {

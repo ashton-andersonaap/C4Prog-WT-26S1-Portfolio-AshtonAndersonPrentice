@@ -62,25 +62,42 @@
   </div>
 
 </header>
-<main>
-    <article>
-        <header>
-            <h2 class="text-xl font-bold text-gray-500">Certificate IV in IT (Programming)</h2>
-            <p>Web Technologies Portfolio as implemented by Ashton Anderson</p>
-        </header>
-        <div>
-            <section>
-                <a href="phase-1">Phase 1</a>
-            </section>
-            <section>
-                <a href="phase-2">Phase 2</a>
-            </section>
-            <section>
-                <a href="phase-3">Phase 3</a>
-            </section>
-        </div>
-    </article>
+
+<main class="p-6 grid grid-cols-1 md:grid-cols-4 gap-6">
+
+  <article class="border border-gray-500 flex flex-col">
+
+    <!-- Card Header -->
+    <header class="bg-gray-800 text-gray-200 p-4">
+      <h2 class="font-bold text-xl">
+        Certificate IV in IT (Programming)
+      </h2>
+    </header>
+
+    <!-- Card Content -->
+    <section class="flex flex-col gap-4 p-4 text-gray-700">
+
+      <p>
+        Web Technologies Portfolio as implemented by Ashton Anderson
+      </p>
+
+      <nav aria-label="Phase navigation" class="flex flex-col gap-2">
+        <a href="phase-1" class="text-blue-600 hover:underline">Phase 1</a>
+        <a href="phase-2" class="text-blue-600 hover:underline">Phase 2</a>
+        <a href="phase-3" class="text-blue-600 hover:underline">Phase 3</a>
+      </nav>
+
+    </section>
+
+    <!-- Card Footer -->
+    <footer class="bg-gray-200 text-gray-800 p-4 mt-auto">
+      20152010 - Ashton Anderson
+    </footer>
+
+  </article>
+
 </main>
+
 <footer class="w-full bg-gray-800 text-gray-400 body-font">
 
   <section class="container mx-auto flex flex-col items-start justify-between p-6 md:flex-row gap-4">
